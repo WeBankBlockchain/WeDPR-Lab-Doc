@@ -1,0 +1,14 @@
+{% extends "!layout.html" %}
+{%- if pagename == '404' %}{% set metatags = '<base href="/zh_CN/latest/">\n  ' + metatags %}{% endif %}
+{% block sidebartitle %}
+{{ super() }}
+<br>
+<img style="background-color:#fff; height: unset; width: unset;" alt="WeDPR"
+    src={{ pathto("_static/images/wedpr_logo.png",1) }} />
+<br>
+<a href="https://github.com/WeBankBlockchain/WeDRP-Lab-Core"><img style="background: transparent; padding: 0px; margin: auto auto auto auto;"
+        alt="GitHub" src="{{ pathto("_static/images/github_button.svg", 1) }}" /></a>
+<a href="{{ pathto("docs/community.html#QR", 1) }}"><img
+        style="background: transparent; padding: 0px; margin: auto auto auto auto;" alt="微信群和公众号"
+        src="{{ pathto("_static/images/wechat_button.svg", 1) }}" /></a>
+{% endblock %}

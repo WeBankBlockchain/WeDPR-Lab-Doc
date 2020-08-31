@@ -1,0 +1,8 @@
+
+##############################################################
+Page Not Found
+##############################################################
+
+To find the page you are looking for you might want to ...
+
+* visit `WeDPR-Lab 1.0+ (Recommended version) <https://wedpr-lab.readthedocs.io/zh_CN/latest/>`_
