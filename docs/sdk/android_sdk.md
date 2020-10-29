@@ -11,16 +11,18 @@ WeDPR Lab Android SDK 依赖如下：
 
 ## 快速体验
 
+编译项目前，需要准备好`Android Studio、并安装NDK`。
+
 - 下载仓库
 
 ```bash
 git clone https://github.com/WeBankBlockchain/WeDPR-Lab-Android-SDK.git && cd ./WeDPR-Lab-Android-SDK
 ```
 
-- 获取动态库库：根据需求访问 `https://github.com/WeBankBlockchain/WeDPR-Lab-Android-SDK`的release页面下载wedpr_android_arm64_v8a_libs.tar.gz 或 wedpr_android_armeabi_v7a_libs.tar.gz
+- 获取动态库库：根据需求访问[依赖库地址](https://github.com/WeBankBlockchain/WeDPR-Lab-Core/releases/tag/v1.1.0)页面下载android_sdk_dynamic_lib_arm64_v8a.tar.gz 或 android_sdk_dynamic_lib_armeabi_v7a.tar.gz
 
 - 解压：tar zxvf wedpr_android_*_libs.tar
-- 拷贝动态库至加载路径：将解压好的动态库放至jniLibs对应路径下
+- 拷贝动态库至加载路径：将解压好的动态库放至demo/app/src/main/jniLibs对应路径下
 
 - 编译项目：bash ./gradlew clean build
 
