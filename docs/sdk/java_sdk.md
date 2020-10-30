@@ -1,4 +1,4 @@
-# JAVA SDK
+# Java SDK
 
 ## 环境依赖
 
@@ -6,7 +6,7 @@ WeDPR Lab Java SDK 依赖如下：
 
 | 依赖软件 | 支持版本 |
 | :-: | :-: |
-| JAVA | JDK1.8+ |
+| Java | JDK1.8+ |
 
 ## 快速体验
 
