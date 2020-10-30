@@ -17,3 +17,4 @@ cargo doc
 - wedpr_macros
 - wedpr_protos
 - wedpr_utils
+- ffi
