@@ -6,8 +6,9 @@ WeDPR Lab Android SDK 依赖如下：
 
 | 依赖软件 | 支持版本 |
 | :-: | :-: |
-| JAVA | JDK1.8+ |
+| Java | JDK1.8+ |
 | Android Studio | 4.1+ |
+| Android NDK | 21+ |
 
 ## 快速体验
 
