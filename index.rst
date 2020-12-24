@@ -3,7 +3,7 @@ WeDPR-Lab 用户文档
 ##############################################################
 
 
-- `什么是 WeDPR-Lab? <./docs/introduction.html>`_
+- `WeDPR-Lab是什么? <./docs/introduction.html>`_
 - `安装 <./docs/installation.html>`_
 - `公开可验证密文账本场景方案 <./docs/installation.html>`_
 - `选择性认证披露场景方案 <./docs/installation.html>`_
