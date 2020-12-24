@@ -24,3 +24,5 @@ WeDPR-Lab 用户文档
    docs/api.md
    docs/faq.md
    docs/community.md
+   404.rst
+   README.md

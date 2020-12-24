@@ -1,4 +1,4 @@
-.DS_Store
+build.DS_Store
 _build/*
 */.DS_Store
 .idea/
