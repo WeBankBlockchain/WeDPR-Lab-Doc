@@ -88,4 +88,3 @@ cargo run之后按照demo指引，设置中文或英文作为演示语言，按�
 范围证明：
 
 ![](../images/prove_range.png)
-
