@@ -11,15 +11,15 @@ WeDPR具备以下特色和优势：
 WeDPR全面拥抱开放，将陆续开源一系列核心算法组件，进一步提升系统安全性的透明度，提供更透明、更可信的隐私保护效果。WeDPR-Lab就是这一系列开源的**核心算法组件**的集合。
 
 # 为什么使用WeDPR-Lab
-WeDPR-Lab目前主要包含两个开源仓库隐私保护场景式解决方案WeDPR-Lab-Core和密码组件WeDPR-Lab-Crytpo。
+WeDPR-Lab目前主要包含两个开源仓库隐私保护场景式解决方案WeDPR-Lab-Core和密码组件WeDPR-Lab-Crypto。
 
 WeDPR-Lab-Core：https://github.com/WeBankBlockchain/WeDPR-Lab-core
 
-WeDPR-Lab-Crytpo： https://github.com/WeBankBlockchain/WeDPR-Lab-crypto
+WeDPR-Lab-Crypto： https://github.com/WeBankBlockchain/WeDPR-Lab-crypto
 
 1. **丰富的多语言接口**
 
-对于隐私保护场景式解决方案WeDPR-Lab-Core和密码组件WeDPR-Lab-Crytpo，我们均提供了Java和C的FFI适配接口，具有涵盖桌面端、服务端、移动端的全平台SDK，
+对于隐私保护场景式解决方案WeDPR-Lab-Core和密码组件WeDPR-Lab-Crypto，我们均提供了Java和C的FFI适配接口，具有涵盖桌面端、服务端、移动端的全平台SDK，
 实现了跨语言、跨平台的适配。
 
 2. **可插拔的接口级设计**
