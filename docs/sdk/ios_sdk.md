@@ -17,6 +17,10 @@ WeDPR Lab iOS SDK 依赖如下：
 ```bash
 git clone https://github.com/WeBankBlockchain/WeDPR-Lab-iOS-SDK.git && cd ./WeDPR-Lab-iOS-SDK
 ```
+或
+```bash
+git clone https://gitee.com/WeBankBlockchain/WeDPR-Lab-iOS-SDK.git && cd ./WeDPR-Lab-iOS-SDK
+```
 
 - 获取静态库：访问[依赖库地址](https://gitee.com/WeBankBlockchain/WeDPR-Lab-Core/releases/v1.2.0-iOS-SDK)页面下载对应版本的动态库
 

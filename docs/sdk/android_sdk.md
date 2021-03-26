@@ -19,6 +19,10 @@ WeDPR Lab Android SDK 依赖如下：
 ```bash
 git clone https://github.com/WeBankBlockchain/WeDPR-Lab-Android-SDK.git && cd ./WeDPR-Lab-Android-SDK
 ```
+或
+```bash
+git clone https://gitee.com/WeBankBlockchain/WeDPR-Lab-Android-SDK.git && cd ./WeDPR-Lab-Android-SDK
+```
 
 - 获取动态库库：根据需求访问[依赖库地址](https://gitee.com/WeBankBlockchain/WeDPR-Lab-Core/releases/v1.2.0-Android-SDK)页面下载对应版本的动态库
 
