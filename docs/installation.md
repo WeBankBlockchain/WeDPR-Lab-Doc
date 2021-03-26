@@ -15,3 +15,7 @@ WeDPR-Lab核心库使用跨平台的系统语言Rust编写，体验前需要安�
 ```bash
 git clone https://github.com/WeBankBlockchain/WeDPR-Lab-Core.git
 ```
+或
+```bash
+git clone https://gitee.com/WeBankBlockchain/WeDPR-Lab-Core.git
+```
