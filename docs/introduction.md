@@ -15,7 +15,8 @@ WeDPR全面拥抱开放，将陆续开源一系列核心算法组件，进一步
 WeDPR-Lab目前主要包含两个开源仓库隐私保护场景式解决方案WeDPR-Lab-Core和密码组件WeDPR-Lab-Crypto。
 
 WeDPR-Lab-Core：
-https://github.com/WeBankBlockchain/WeDPR-Lab-Core
+https://
+github.com/WeBankBlockchain/WeDPR-Lab-Core
 https://gitee.com/WeBankBlockchain/WeDPR-Lab-Core
 
 WeDPR-Lab-Crypto： 
