@@ -53,3 +53,9 @@ cd demo/dist
 ```
 java -cp "apps/*:conf/:libs/*" com.webank.wedpr.demo.DemoMain
 ```
+
+### FAQ
+
+当提示`The WeDPR dynamic library was not found`时，请检查并下载对应操作系统的动态库防止于`WeDPR_dynamic_lib`文件夹下
+
+当系统openssl版本为1.0.x时，scd动态库为1_0版本，当系统openssl版本为1.1.x时，scd动态库为1_1版本
