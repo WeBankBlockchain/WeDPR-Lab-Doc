@@ -30,6 +30,4 @@ git clone https://gitee.com/WeBankBlockchain/WeDPR-Lab-Android-SDK.git && cd ./W
 
 * 拷贝动态库至加载路径：将解压好的动态库放至demo/app/src/main/jniLibs对应路径下
 
-* 编译项目：bash ./gradlew clean build
-
 * 查看demo：查看MainActivity.java
