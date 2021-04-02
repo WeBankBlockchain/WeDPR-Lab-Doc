@@ -15,13 +15,16 @@ WeDPR全面拥抱开放，将陆续开源一系列核心算法组件，进一步
 WeDPR-Lab目前主要包含两个开源仓库隐私保护场景式解决方案WeDPR-Lab-Core和密码组件WeDPR-Lab-Crypto。
 
 WeDPR-Lab-Core：
-https://
-github.com/WeBankBlockchain/WeDPR-Lab-Core
+https://github.com/WeBankBlockchain/WeDPR-Lab-Core
 https://gitee.com/WeBankBlockchain/WeDPR-Lab-Core
+
 
 WeDPR-Lab-Crypto： 
 https://github.com/WeBankBlockchain/WeDPR-Lab-Crypto
 https://gitee.com/WeBankBlockchain/WeDPR-Lab-Crypto
+
+
+
 - **丰富的多语言接口**
 
 对于隐私保护场景式解决方案WeDPR-Lab-Core和密码组件WeDPR-Lab-Crypto，我们均提供了Java和C的FFI适配接口，具有涵盖桌面端、服务端、移动端的全平台SDK，
@@ -39,6 +42,7 @@ WeDPR系列开发包具有高效的内存利用率与运行速度，性能与C�
 
 - **核心密码算法组件**，包括：
 
+
   -  分组加密算法：包括AES-256、国密SM4；
   
   -  哈希算法：包括SHA3、BLAKE2、RIPEMD-160；
@@ -53,6 +57,26 @@ WeDPR系列开发包具有高效的内存利用率与运行速度，性能与C�
 
 - **FFI接口**，支持交叉编译跨语言、跨平台所调用的FFI适配接口。
   
+
+**WeDPR-Lab-Crypto v1.1.0版本**开源主要内容如下：
+
+- **核心密码算法组件**，包括：
+
+  -  分组加密算法：包括AES-256、国密SM4；
+  
+  -  哈希算法：包括SHA3、BLAKE2、RIPEMD-160；
+  
+  -  椭圆曲线计算：包括椭圆曲线BN128的点加、点乘及双线性对操作；
+  
+  -  数字签名算法：包括Ed25519；
+  
+  -  零知识证明的聚合验证：包括加和证明的聚合验证、乘积证明的聚合验证。
+  
+- **二进制接口**，包括所有核心密码算法的高性能二进制接口;
+
+- **FFI接口**，支持交叉编译跨语言、跨平台所调用的FFI适配接口。
+
+
 **WeDPR-Lab-Crypto v1.0.0版本**开源主要内容如下：
 
 - **核心密码算法组件**，包括：
