@@ -17,6 +17,10 @@ WeDPR Lab iOS SDK 依赖如下：
 ``` bash
 git clone https://github.com/WeBankBlockchain/WeDPR-Lab-iOS-SDK.git && cd ./WeDPR-Lab-iOS-SDK
 ```
+或
+```bash
+git clone https://gitee.com/WeBankBlockchain/WeDPR-Lab-iOS-SDK.git && cd ./WeDPR-Lab-iOS-SDK
+```
 
 或
 

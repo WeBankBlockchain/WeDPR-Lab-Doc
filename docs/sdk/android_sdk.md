@@ -19,6 +19,10 @@ WeDPR Lab Android SDK 依赖如下：
 ``` bash
 git clone https://github.com/WeBankBlockchain/WeDPR-Lab-Android-SDK.git && cd ./WeDPR-Lab-Android-SDK
 ```
+或
+```bash
+git clone https://gitee.com/WeBankBlockchain/WeDPR-Lab-Android-SDK.git && cd ./WeDPR-Lab-Android-SDK
+```
 
 或
 
