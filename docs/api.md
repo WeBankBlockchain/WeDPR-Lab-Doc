@@ -4,4 +4,4 @@ VCL接口说明文档：[点击这里](https://docs.rs/wedpr_s_verifiable_confid
 
 SCD接口说明文档：[点击这里](https://docs.rs/wedpr_s_selective_certificate_disclosure/1.2.0/wedpr_s_selective_certificate_disclosure/)
 
-密码模块接口说明文档：[点击这里](https://docs.rs/wedpr_crypto/1.2.0/wedpr_crypto/)
+密码模块接口说明文档：[点击这里](https://crates.io/search?q=wedpr)
