@@ -74,9 +74,7 @@ WeDPR(星隐)是基于区块链、安全多方计算、联合建模等技术构�
    :maxdepth: 1
    :caption: 应用接入
 
-   docs/sdk/gateway_sdk/index.md
-   docs/sdk/gateway_sdk/java/index.md
-   docs/sdk/gateway_sdk/python/index.md
+   docs/sdk/gateway_sdk/index.rst
    docs/sdk/ml_sdk/index.md
    docs/sdk/pir_sdk/index.md
 
@@ -87,7 +85,9 @@ WeDPR(星隐)是基于区块链、安全多方计算、联合建模等技术构�
    :maxdepth: 1
    :caption: 常见问题
 
-   docs/faq/index.rst
+   docs/faq/function.md
+   docs/faq/perf.md
+   docs/faq/deploy.md
 
 
 .. toctree::
