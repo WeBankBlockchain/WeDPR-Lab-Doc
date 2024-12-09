@@ -6,7 +6,7 @@
 
 WeDPR中，用户参考[项目空间](./project_op.md)创建项目后，可在项目空间内发起各种类型的隐私计算任务，目前平台支持的隐私计算任务如下:
 
-<img src="../../images/manual/tasks/tasks.png" alt=""/>
+<img src="../../images/manual/tasks/tasks.png"/>
 
 如下，项目空间内，可新建任务、查询任务、终止任务、复制任务，对于建模类的任务还可调参重跑。
 
@@ -111,8 +111,55 @@ pir任务结果记录于csv文件中，任务执行完毕后，可通过【任�
 - 单击【下一步】进入到【选择数据资源】页面，单击选择标签数据和参与方数据，如下:
 ![](../../images/manual/tasks/xgb/xgb_train_select_data.png)
 
+- 选择参与建模的数据集后，单击[下一步]进入到【配置并运行】页面，设置建模参数，SecureLGBM支持的建模参数包括：
 
+| **参数名称**  |          **参数说明**           | **默认值** |
+|:---------:|:---------------------------:| :----------------------------:|
+|  use_psi  |             ||
+|  fillna   |                             ||
+| na_select |                             ||
+| normalized |                             ||
+| standardized |                             ||
+| psi_select_col |                             ||
+| psi_select_base |                             ||
+| psi_select_thresh |                             ||
+| psi_select_bins |                             ||
+| corr_select |                             ||
+| use_iv |                             ||
+| group_num |                             ||
+| iv_thresh |                             ||
+| use_goss |                             ||
+| test_dataset_percentage |                             ||
+| learning_rate |                             ||
+| num_trees |                             ||
+| max_depth |                             ||
+| max_bin |                             ||
+| silent |                             ||
+| subsample |                             ||
+| colsample_bytree |                             ||
+| colsample_bylevel |                             ||
+| reg_alpha |                             ||
+| reg_lambda |                             ||
+| gamma |                             ||
+| min_child_weight |                             ||
+| min_child_samples |                             ||
+| seed |                             ||
+| early_stopping_rounds |                             ||
+| eval_metric |                             ||
+| verbose_eval |                             ||
+| eval_set_column |                             ||
+| train_set_value |                             ||
+| eval_set_value |                             ||
+| train_features |                             ||
 
+配置示例如下:
+![](../../images/manual/tasks/xgb/xgb_train_submit.png)
+
+- 单击【运行】按钮发起SecureLGBM训练任务，任务元信息如下:
+
+![](../../images/manual/tasks/xgb/xgb_train_detai.png)
+
+SecureLGBM任务执行结束后，可通过【任务详情】按钮查看可视化的训练结果。
 
 ### 4.1.6 SecureLGBM预测任务
 
