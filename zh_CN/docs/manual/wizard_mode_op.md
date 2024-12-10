@@ -6,7 +6,7 @@
 
 WeDPR中，用户参考[项目空间](./project_op.md)创建项目后，可在项目空间内发起各种类型的隐私计算任务，目前平台支持的隐私计算任务如下:
 
-<img src="../../images/manual/tasks/tasks.png"/>
+<img src="../../manual/tasks/tasks.png" style="zoom:40%;" />
 
 如下，项目空间内，可新建任务、查询任务、终止任务、复制任务，对于建模类的任务还可调参重跑。
 
@@ -51,7 +51,7 @@ WeDPR中，用户参考[项目空间](./project_op.md)创建项目后，可在�
 
 - 在【配置并运行】页面的【结果接收方】选项框中选择需要接收隐私求交集的结果的机构名称，单击【运行】发起数据对齐任务
 
-![](../../images/manual/tasks/psi.png)
+<img src="../../manual/tasks/psi.png" style="zoom:60%;" />
 
 
 ### 4.1.2 匿踪查询任务
@@ -65,11 +65,12 @@ WeDPR中，用户参考[项目空间](./project_op.md)创建项目后，可在�
 ****
 - 单击【项目详情】页面右上角的【新建任务按钮】，进入到【新增任务页面】，选择【匿踪查询】任务模板:
 
-![](../../images/manual/tasks/pir/pir_template.png)
+<img src="../../manual/tasks/pir/pir_template.png" style="zoom:40%;" />
 
 - 单击【下一步】进入到【选择数据】页面，从已经发布成功的服务中选择需要查询的服务：
 
-![](../../images/manual/tasks/pir/pir_select_service.png)
+<img src="../../manual/tasks/pir/pir_select_service.png" style="zoom:60%;" />
+
 
 - 单击【下一步】进入到【配置并运行页面】，配置PIR任务，配置的参数主要包括：
 
@@ -81,15 +82,18 @@ WeDPR中，用户参考[项目空间](./project_op.md)创建项目后，可在�
 
 配置示例如下:
 
-![](../../images/manual/tasks/pir/pir_config.png)
+<img src="../../manual/tasks/pir/pir_config.png" style="zoom:60%;" />
+
+
 
 - 单击【运行】发起匿踪查询服务，匿踪查询服务详情如下：
 
-![](../../images/manual/tasks/pir/pir_job.png)
+<img src="../../manual/tasks/pir/pir_job.png" style="zoom:60%;" />
 
 pir任务结果记录于csv文件中，任务执行完毕后，可通过【任务信息】中的【任务结果】->【结果文件】下载匿踪查询结果，如下：
 
-![](../../images/manual/tasks/pir/pir_result.png)
+<img src="../../manual/tasks/pir/pir_result.png" style="zoom:40%;" />
+
 
 ### 4.1.3 联表分析任务
 --- TODO: 补充
@@ -109,7 +113,8 @@ pir任务结果记录于csv文件中，任务执行完毕后，可通过【任�
 ****
 - 单击【项目详情】页面右上角的【新建任务按钮】，进入到【新增任务页面】，选择【SecureLGBM训练】任务模板
 - 单击【下一步】进入到【选择数据资源】页面，单击选择标签数据和参与方数据，如下:
-![](../../images/manual/tasks/xgb/xgb_train_select_data.png)
+
+<img src="../../manual/tasks/xgb/xgb_train_select_data.png" style="zoom:40%;" />
 
 - 选择参与建模的数据集后，单击[下一步]进入到【配置并运行】页面，设置建模参数，SecureLGBM支持的建模参数包括：
 
@@ -153,11 +158,12 @@ pir任务结果记录于csv文件中，任务执行完毕后，可通过【任�
 | train_features |                             ||
 
 配置示例如下:
-![](../../images/manual/tasks/xgb/xgb_train_submit.png)
+
+<img src="../../manual/tasks/xgb/xgb_train_submit.png" style="zoom:40%;" />
 
 - 单击【运行】按钮发起SecureLGBM训练任务，任务元信息如下:
 
-![](../../images/manual/tasks/xgb/xgb_train_detai.png)
+<img src="../../manual/tasks/xgb/xgb_train_detai.png" style="zoom:50%;" />
 
 SecureLGBM任务执行结束后，可通过【任务详情】按钮查看可视化的训练结果。
 
