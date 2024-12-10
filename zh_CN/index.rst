@@ -6,18 +6,15 @@
 
             .. image:: _static/images/wedpr_logo.png
 
-.. container:: row 
 
-   .. raw:: html
-      <br><br>
-      <hr>
-      <br>
+
+========
 
 WeDPR(星隐)是基于区块链、安全多方计算、联合建模等技术构建一个密态隐私计算系统，可实现“原始数据不出域，数据可用不可见、可控可计量”，服务公共数据授权运营、金融联合风控营销、跨行业数据合作等场景。
 
+========
 
 .. toctree::
-   :hidden:
    :maxdepth: 1
    :caption: 平台介绍
 
@@ -26,16 +23,18 @@ WeDPR(星隐)是基于区块链、安全多方计算、联合建模等技术构�
    docs/introduction/function_overview.md
    docs/introduction/change_log/index.rst
 
+========
+
 .. toctree::
-   :hidden:
    :maxdepth: 1
    :caption: 快速开始
 
    docs/quick_start/hardware_requirements.md
    docs/quick_start/standalone_installation.md
 
+========
+
 .. toctree::
-   :hidden:
    :maxdepth: 1
    :caption: 用户指南
 
@@ -49,8 +48,9 @@ WeDPR(星隐)是基于区块链、安全多方计算、联合建模等技术构�
    docs/manual/user_mgr.md
    docs/manual/wepdr_mpc_dev.md
 
+========
+
 .. toctree::
-   :hidden:
    :maxdepth: 1
    :caption: 运维指南
 
@@ -62,15 +62,17 @@ WeDPR(星隐)是基于区块链、安全多方计算、联合建模等技术构�
    docs/op/wedpr_component.md
    docs/op/jupyter.md
 
+========
+
 .. toctree::
-   :hidden:
    :maxdepth: 1
    :caption: 系统设计
 
    docs/design/architecture.md
 
+========
+
 .. toctree::
-   :hidden:
    :maxdepth: 1
    :caption: 应用接入
 
