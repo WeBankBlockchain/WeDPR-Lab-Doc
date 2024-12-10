@@ -117,93 +117,45 @@ pir任务结果记录于csv文件中，任务执行完毕后，可通过【任�
 
 - 选择参与建模的数据集后，单击[下一步]进入到【配置并运行】页面，设置建模参数，SecureLGBM支持的建模参数包括：
 
-| **参数名称**  |          **参数说明**           | **默认值** |
-|:---------:|:---------------------------:| :----------------------------:|
-|  use_psi  |             ||
-|  fillna   |                             ||
-| na_select |                             ||
-| normalized |                             ||
-| standardized |                             ||
-| psi_select_col |                             ||
-| psi_select_base |                             ||
-| psi_select_thresh |                             ||
-| psi_select_bins |                             ||
-| corr_select |                             ||
-| use_iv |                             ||
-| group_num |                             ||
-| iv_thresh |                             ||
-| use_goss |                             ||
-| test_dataset_percentage |                             ||
-| learning_rate |                             ||
-| num_trees |                             ||
-| max_depth |                             ||
-| max_bin |                             ||
-| silent |                             ||
-| subsample |                             ||
-| colsample_bytree |                             ||
-| colsample_bylevel |                             ||
-| reg_alpha |                             ||
-| reg_lambda |                             ||
-| gamma |                             ||
-| min_child_weight |                             ||
-| min_child_samples |                             ||
-| seed |                             ||
-| early_stopping_rounds |                             ||
-| eval_metric |                             ||
-| verbose_eval |                             ||
-| eval_set_column |                             ||
-| train_set_value |                             ||
-| eval_set_value |                             ||
-| train_features |                             ||
-
-配置示例如下:
-![](../../images/manual/tasks/xgb/xgb_train_submit.png)
-
-- 单击【运行】按钮发起SecureLGBM训练任务，任务元信息如下:
-
-![](../../images/manual/tasks/xgb/xgb_train_detai.png)
-
-SecureLGBM任务执行结束后，可通过【任务详情】按钮查看可视化的训练结果。
->>>>>>> wedpr/dev-3.0
-
-| **参数名称**  |          **参数说明**           | **默认值** |
-|:---------:|:---------------------------:| :----------------------------:|
-|  use_psi  |             ||
-|  fillna   |                             ||
-| na_select |                             ||
-| normalized |                             ||
-| standardized |                             ||
-| psi_select_col |                             ||
-| psi_select_base |                             ||
-| psi_select_thresh |                             ||
-| psi_select_bins |                             ||
-| corr_select |                             ||
-| use_iv |                             ||
-| group_num |                             ||
-| iv_thresh |                             ||
-| use_goss |                             ||
-| test_dataset_percentage |                             ||
-| learning_rate |                             ||
-| num_trees |                             ||
-| max_depth |                             ||
-| max_bin |                             ||
-| silent |                             ||
-| subsample |                             ||
-| colsample_bytree |                             ||
-| colsample_bylevel |                             ||
-| reg_alpha |                             ||
-| reg_lambda |                             ||
-| gamma |                             ||
-| min_child_weight |                             ||
-| min_child_samples |                             ||
-| seed |                             ||
-| early_stopping_rounds |                             ||
-| eval_metric |                             ||
-| verbose_eval |                             ||
-| eval_set_column |                             ||
-| train_set_value |                             ||
-| eval_set_value |                             ||
-| train_features |                             ||
+| **参数名称**  |                   **参数说明**                    | **默认值** |
+|:---------:|:---------------------------------------------:|:-------:|
+|  use_psi  |是否基于双方数据的id字段求交集后再运行训练任务            |  false  |
+|  fillna   |是否进行缺失值填充(若数据集中含有缺失值，需设置该选项为true)       |  false  |
+| na_select |缺失值筛选阈值,取值范围为0~1之间(0表示只要有缺失值就移除,1表示移除全为缺失值的列) |    1    |
+| normalized |是否对数据集进行归一化处理                 |  false  |
+| standardized |是否对数据集进行标准化处理                 |  false  |
+| categorical |标记所有分类特征字段,格式:x1,x12(空代表无分类特征)         |    空    |
+| psi_select_col |PSI稳定性筛选时间列名(空代表不进行PSI筛选)           |    空    |
+| psi_select_base |PSI稳定性筛选的基期(空代表不进行PSI筛选)            |    空    |
+| psi_select_thresh |PSI筛选阈值,取值范围为0~1之间               |   0.3   |
+| psi_select_bins |计算PSI时分箱数,取值范围为3~100之间             |    4    |
+| corr_select |特征相关性筛选阈值,取值范围为0~1之间(值为0时不进行相关性筛选)       |    0    |
+| use_iv |是否跑特征工程，联合计算iv值，并基于iv阈值进行特征筛选         |  false  |
+| group_num |woe计算分箱数,取值范围为3~100之间的整数            |    4    |
+| iv_thresh |iv特征筛选的阈值,取值范围为0.01~1之间            |   0.1   |
+| use_goss |是否使用goss                    |  false  |
+| test_dataset_percentage |测试集比例, 取值范围为0.1~0.5之间             |   0.3   |
+| learning_rate |学习率, 取值范围为0.01~1之间               |   0.1   |
+| num_trees |SecurLGBM迭代树棵树, 取值范围为1~300之间的整数        |    6    |
+| max_depth |SecureLGBM树深度, 取值范围为1~6之间的整数          |    3    |
+| max_bin |特征分箱数, 取值范围为3~100之间的整数             |    4    |
+| silent |是否打印详细日志                    |  false  |
+| subsample |训练每棵树使用的样本比例,取值范围为0.1~1之间                                         |    1    |
+| colsample_bytree |训练每棵树使用的特征比例,取值范围为0.1~1之间                                       |    1    |
+| colsample_bylevel |训练每一层使用的特征比例,取值范围为0.1~1之间                                       |    1    |
+| reg_alpha |L1正则化项,用于控制模型复杂度,取值范围为大于等于0的数值                                          |    0    |
+| reg_lambda |L2正则化项,用于控制模型复杂度,取值范围为大于等于0的数值                                        |    1    |
+| gamma |最优分割点所需的最小损失函数下降值,取值范围为大于等于0的数值                                         |    0    |
+| min_child_weight |最优分割点所需的最小叶子节点权重,取值范围为大于等于0的数值                                  |    0    |
+| min_child_samples |最优分割点所需的最小叶子节点样本数量,取值范围为1~1000之间的整数                                             |   10    |
+| seed |分割训练集测试集时随机数种子,取值范围为0~10000之间的整数                                     |  2024   |
+| early_stopping_rounds |指定迭代多少次没有提升则停止训练, 值为0时不执行, 取值范围为0~100之间的整数                                       |    0    |
+| eval_metric |早停的评估指标,支持auc, acc, recall, precision                                         |   auc   |
+| verbose_eval |按传入的间隔输出训练过程中的评估信息,0表示不打印                                          |    1    |
+| eval_set_column | 指定训练集测试集标记字段名称                                              |    空    |
+| train_set_value | 指定训练集标记值                                              |    空    |
+| eval_set_value | 指定测试集标记值                                              |    空    |
+| train_features | 指定入模特征                                              |    空    |
 
 配置示例如下:
 
