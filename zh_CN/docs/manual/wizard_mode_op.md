@@ -113,10 +113,58 @@ pir任务结果记录于csv文件中，任务执行完毕后，可通过【任�
 ****
 - 单击【项目详情】页面右上角的【新建任务按钮】，进入到【新增任务页面】，选择【SecureLGBM训练】任务模板
 - 单击【下一步】进入到【选择数据资源】页面，单击选择标签数据和参与方数据，如下:
-
 <img src="../../manual/tasks/xgb/xgb_train_select_data.png" style="zoom:40%;" />
 
 - 选择参与建模的数据集后，单击[下一步]进入到【配置并运行】页面，设置建模参数，SecureLGBM支持的建模参数包括：
+
+| **参数名称**  |          **参数说明**           | **默认值** |
+|:---------:|:---------------------------:| :----------------------------:|
+|  use_psi  |             ||
+|  fillna   |                             ||
+| na_select |                             ||
+| normalized |                             ||
+| standardized |                             ||
+| psi_select_col |                             ||
+| psi_select_base |                             ||
+| psi_select_thresh |                             ||
+| psi_select_bins |                             ||
+| corr_select |                             ||
+| use_iv |                             ||
+| group_num |                             ||
+| iv_thresh |                             ||
+| use_goss |                             ||
+| test_dataset_percentage |                             ||
+| learning_rate |                             ||
+| num_trees |                             ||
+| max_depth |                             ||
+| max_bin |                             ||
+| silent |                             ||
+| subsample |                             ||
+| colsample_bytree |                             ||
+| colsample_bylevel |                             ||
+| reg_alpha |                             ||
+| reg_lambda |                             ||
+| gamma |                             ||
+| min_child_weight |                             ||
+| min_child_samples |                             ||
+| seed |                             ||
+| early_stopping_rounds |                             ||
+| eval_metric |                             ||
+| verbose_eval |                             ||
+| eval_set_column |                             ||
+| train_set_value |                             ||
+| eval_set_value |                             ||
+| train_features |                             ||
+
+配置示例如下:
+![](../../images/manual/tasks/xgb/xgb_train_submit.png)
+
+- 单击【运行】按钮发起SecureLGBM训练任务，任务元信息如下:
+
+![](../../images/manual/tasks/xgb/xgb_train_detai.png)
+
+SecureLGBM任务执行结束后，可通过【任务详情】按钮查看可视化的训练结果。
+>>>>>>> wedpr/dev-3.0
 
 | **参数名称**  |          **参数说明**           | **默认值** |
 |:---------:|:---------------------------:| :----------------------------:|
