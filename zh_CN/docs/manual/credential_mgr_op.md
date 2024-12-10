@@ -14,7 +14,7 @@ WeDPR管理平台支持第三方应用通过API的方式接入，应用访问平
 <img src="../../manual/credential/credential.png" style="zoom:40%;" />
 
 
-
+*******
 ## 7.1 创建并启用凭证
 
 - 单击左侧导航栏的【凭证管理】进入到凭证管理页面

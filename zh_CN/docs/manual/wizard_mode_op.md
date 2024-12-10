@@ -8,11 +8,13 @@ WeDPR中，用户参考[项目空间](./project_op.md)创建项目后，可在�
 
 <img src="../../manual/tasks/tasks.png" style="zoom:40%;" />
 
+*******
 如下，项目空间内，可新建任务、查询任务、终止任务、复制任务，对于建模类的任务还可调参重跑。
 
 ![](../../images/manual/tasks/job.png)
 
 
+*******
 ## 4.1 新建任务
 
 由于任务须归属于某个项目，因此发起所有类型任务之前，首先需要选定一个项目，操作步骤如下：
@@ -53,7 +55,7 @@ WeDPR中，用户参考[项目空间](./project_op.md)创建项目后，可在�
 
 <img src="../../manual/tasks/psi.png" style="zoom:60%;" />
 
-
+*******
 ### 4.1.2 匿踪查询任务
 
 **使用前提**
@@ -65,13 +67,14 @@ WeDPR中，用户参考[项目空间](./project_op.md)创建项目后，可在�
 ****
 - 单击【项目详情】页面右上角的【新建任务按钮】，进入到【新增任务页面】，选择【匿踪查询】任务模板:
 
-<img src="../../manual/tasks/pir/pir_template.png" style="zoom:40%;" />
+  <img src="../../manual/tasks/pir/pir_template.png" style="zoom:40%;" />
 
+*******
 - 单击【下一步】进入到【选择数据】页面，从已经发布成功的服务中选择需要查询的服务：
 
-<img src="../../manual/tasks/pir/pir_select_service.png" style="zoom:60%;" />
+  <img src="../../manual/tasks/pir/pir_select_service.png" style="zoom:60%;" />
 
-
+*******
 - 单击【下一步】进入到【配置并运行页面】，配置PIR任务，配置的参数主要包括：
 
 | **参数名称** | **参数说明**                     |
@@ -82,19 +85,19 @@ WeDPR中，用户参考[项目空间](./project_op.md)创建项目后，可在�
 
 配置示例如下:
 
-<img src="../../manual/tasks/pir/pir_config.png" style="zoom:60%;" />
+  <img src="../../manual/tasks/pir/pir_config.png" style="zoom:60%;" />
 
-
-
+*******
 - 单击【运行】发起匿踪查询服务，匿踪查询服务详情如下：
 
-<img src="../../manual/tasks/pir/pir_job.png" style="zoom:60%;" />
+  <img src="../../manual/tasks/pir/pir_job.png" style="zoom:60%;" />
 
+*******
 pir任务结果记录于csv文件中，任务执行完毕后，可通过【任务信息】中的【任务结果】->【结果文件】下载匿踪查询结果，如下：
 
-<img src="../../manual/tasks/pir/pir_result.png" style="zoom:40%;" />
+  <img src="../../manual/tasks/pir/pir_result.png" style="zoom:40%;" />
 
-
+*******
 ### 4.1.3 联表分析任务
 
 **使用前提**
@@ -124,6 +127,7 @@ pir任务结果记录于csv文件中，任务执行完毕后，可通过【任�
 ![](../../images/manual/tasks/sql/result.png)
 
 
+*******
 ### 4.1.4 自定义计算任务
 
 
@@ -153,6 +157,7 @@ pir任务结果记录于csv文件中，任务执行完毕后，可通过【任�
 ![](../../images/manual/tasks/mpc/stmt.png)
 ![](../../images/manual/tasks/mpc/result.png)
 
+*******
 ### 4.1.5 SecureLGBM训练任务
 
 **使用前提**
@@ -166,8 +171,10 @@ pir任务结果记录于csv文件中，任务执行完毕后，可通过【任�
 ****
 - 单击【项目详情】页面右上角的【新建任务按钮】，进入到【新增任务页面】，选择【SecureLGBM训练】任务模板
 - 单击【下一步】进入到【选择数据资源】页面，单击选择标签数据和参与方数据，如下:
-<img src="../../manual/tasks/xgb/xgb_train_select_data.png" style="zoom:40%;" />
+  
+  <img src="../../manual/tasks/xgb/xgb_train_select_data.png" style="zoom:40%;" />
 
+*******
 - 选择参与建模的数据集后，单击[下一步]进入到【配置并运行】页面，设置建模参数，SecureLGBM支持的建模参数包括：
 
 | **参数名称**                | **参数说明**                                                                       | **默认值** |
@@ -212,18 +219,21 @@ pir任务结果记录于csv文件中，任务执行完毕后，可通过【任�
 
 配置示例如下:
 
-<img src="../../manual/tasks/xgb/xgb_train_submit.png" style="zoom:40%;" />
+  <img src="../../manual/tasks/xgb/xgb_train_submit.png" style="zoom:40%;" />
 
+*******
 - 单击【运行】按钮发起SecureLGBM训练任务，任务元信息如下:
 
-<img src="../../manual/tasks/xgb/xgb_train_detai.png" style="zoom:50%;" />
+  <img src="../../manual/tasks/xgb/xgb_train_detai.png" style="zoom:50%;" />
 
+*******
 SecureLGBM任务执行结束后，可通过【任务详情】按钮查看可视化的训练结果。
 
 - SecurLGBM任务执行完毕后，在【项目空间】->【项目详情】->【任务详情】页面会展示模型信息，可通过【保存模型】按钮将建模结果保存为模型；通过【保存配置】按钮保存训练配置；也可通过【调参重跑】按钮调整参数用同样的数据集再次发起训练任务。
 
-<img src="../../manual/tasks/xgb/xgb_model.png" style="zoom:50%;" />
+  <img src="../../manual/tasks/xgb/xgb_model.png" style="zoom:50%;" />
 
+*******
 ### 4.1.6 SecureLGBM预测任务
 
 **使用前提**
@@ -245,16 +255,19 @@ SecureLGBM任务执行结束后，可通过【任务详情】按钮查看可视�
 - 单击【项目详情】页面右上角的【新建任务按钮】，进入到【新增任务页面】，选择【SecureLGBM预测】任务模板
 - 单击【下一步】进入到【选择数据资源】页面，按照提示【选择模型】：
 
-<img src="../../manual/tasks/xgb/xgb_predict_select_model.png" style="zoom:50%;" />
+  <img src="../../manual/tasks/xgb/xgb_predict_select_model.png" style="zoom:50%;" />
 
+*******
 - 在【选择数据资源】页面，按照提示【选择数据集】：
 
   <img src="../../manual/tasks/xgb/xgb_predict_select_data.png" style="zoom:50%;" />
 
+*******
 - 单击【下一步】进入到【配置并运行】任务页面，配置参数，并选择结果接收方，单击【运行】发起预测任务：
 
   <img src="../../manual/tasks/xgb/xgb_predict_run.png" style="zoom:50%;" />
 
+*******
 - 可通过【项目空间】-> 【项目详情】->【任务详情】页面查看预测任务的运行情况
 
 
