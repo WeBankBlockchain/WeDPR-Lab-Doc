@@ -66,12 +66,23 @@ conf/config-example.toml config.toml
 sed -i 's/name_node_port = 9000/name_node_port = 9000/g' config.toml
  
 # 配置webfs访问端口, 实际配置时请把${namenode_webfs_port}配置为HDFS webfs 访问地址
-# sed -i 's/webfs_port = 50700/webfs_port = ${namenode_webfs_port}/g' config.toml
-sed -i 's/webfs_port = 50700/webfs_port = 50700/g' config.toml
-
+# sed -i 's/webfs_port = 50070/webfs_port = ${namenode_webfs_port}/g' config.toml
+sed -i 's/webfs_port = 50070/webfs_port = 50070/g' config.toml
 ```
 
-**步骤三: 统一替换本机IP为机器内网IP**
+**步骤三：配置MYSQL信息**
+
+MYSQL的配置选项位于`config.toml`中的`[agency.mysql]`配置项中，每个机构都有对应的mysql配置，需将其配置为真实的mysql连接信息、用户访问信息，如下:
+
+```bash
+    [agency.mysql]
+        host = "127.0.0.1"
+        port = "3306"
+        user = ""
+        password = ""
+```
+
+**步骤四: 统一替换本机IP为机器内网IP**
 
 统一替换配置模板中的本机地址`127.0.0.1`为本机的内网ip地址:
 
@@ -89,7 +100,7 @@ sed -i 's/127.0.0.1/192.168.1.2/g' config.toml
    配置模板中默认部署机构 `agency0` 和 `agency1` 的隐私计算环境，若想修改机构名，可采用 `sed` 命令，将旧的机构名统一替换成目标机构名
 ```
 
-**步骤四：部署隐私计算合约**
+**步骤五：部署隐私计算合约**
 
 获取隐私计算合约:
 
@@ -122,7 +133,7 @@ currentAccount: 0xef375a109f9f817b5480c408511012f0c49e42bb
 cd ~/wedpr/wedpr-builder
 ```
 
-**步骤五：配置隐私计算合约地址信息**:
+**步骤六：配置隐私计算合约地址信息**:
 
 ```bash
 # vim或其他编辑器打开配置模板config.toml, 配置定序合约地址为上面部署的合约地址0x2cce9b84c7b9cf8ca4a8438fac936877a8c7e6a9(请您根据实际使用情况配置)
@@ -133,7 +144,7 @@ recorder_factory_contract_address = "0x45c4ac4bf51d82d820b2ed904611e3fc37b6a737"
 ```
 
 
-**步骤六: 配置区块链信息**
+**步骤七: 配置区块链信息**
 
 **这里设区块链节点位于~/fisco目录下**。
 
@@ -160,6 +171,7 @@ mkdir -p sdk && cp -r ~/fisco/nodes/127.0.0.1/sdk/* sdk/
 # 配置区块链证书路径:
 sed -i 's/blockchain_cert_path = ""/blockchain_cert_path = "sdk"/g' config.toml
 ```
+
 
 ## 2.4 生成隐私计算服务配置
 
