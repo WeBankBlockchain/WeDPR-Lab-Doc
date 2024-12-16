@@ -4,7 +4,7 @@
 
 ----
 
-本章介绍搭建隐私计算网络的必要安装和配置。通过在单机上部署一个2机构的WeDPR隐私计算网络，帮助用户掌握WeDPR隐私计算平台的部署流程，请参考(系统和硬件要求)[./hardware_requirements.md]使用支持的硬件和平台错左。
+本章介绍搭建隐私计算网络的必要安装和配置。通过在单机上部署一个2机构的WeDPR隐私计算网络，帮助用户掌握WeDPR隐私计算平台的部署流程，请参考[系统和硬件要求](./hardware_requirements.md)使用支持的硬件和平台错左。
 
 ```eval_rst
 .. note::
@@ -44,7 +44,7 @@ pip3 install -i https://mirrors.aliyun.com/pypi/simple -r requirements.txt
 ```
 
 ```bash
-conf/config-example.toml config.toml
+cp conf/config-example.toml config.toml
 ```
 
 **步骤二: 配置HDFS信息**
@@ -561,7 +561,7 @@ tree -d -L 3
 **步骤一: 创建部署路径，并拷贝所有服务器配置**
 
 ```bash
-mkdir -p ~/wedpr/ && cp -r ~/wedpr-generated/wedpr-example ~/wedpr  && cd ~/wedpr/wedpr-example
+mkdir -p ~/wedpr/ && cp -r ~/wedpr/wedpr-builder/wedpr-generated/wedpr-example ~/wedpr  && cd ~/wedpr/wedpr-example
 ```
 
 **步骤二：初始化站点端DB配置**
@@ -597,14 +597,14 @@ create database agency1
 # 切换到配置路径
 cd ~/wedpr/wedpr-example
 # 找到agency0的初始化脚本路径
-find . -name site_init.sh |grep -ia agency0
+find . -name site_init.sh |grep -ia agency0 |grep -v wedpr-generated
 # 输出路径如下
 ./agency0/192.168.1.2/wedpr-site/init/site_init.sh
 # 执行该路径下的agency0的初始化脚本
 bash ./agency0/192.168.1.2/wedpr-site/init/site_init.sh
 
 # 找到agency1的初始化脚本路径
-find . -name site_init.sh |grep -ia agency1
+find . -name site_init.sh |grep -ia agency1 |grep -v wedpr-generated
 # 输出路径如下
 ./agency1/192.168.1.2/wedpr-site/init/site_init.sh
 # 执行该路径下的agency1的初始化脚本
@@ -625,7 +625,7 @@ bash ./agency1/192.168.1.2/wedpr-site/init/site_init.sh
 cd ~/wedpr/wedpr-example
 
 # 创建agency0的所有容器
-# 可以通过 find . -name create_all_dockers.sh |grep -i agency0获取机构agency0的所有容器创建脚本
+# 可以通过 find . -name create_all_dockers.sh |grep -i agency0 |grep -v wedpr-generated获取机构agency0的所有容器创建脚本
 bash ./agency0/192.168.1.2/wedpr-gateway/create_all_dockers.sh
 bash ./agency0/192.168.1.2/wedpr-node/create_all_dockers.sh
 bash ./agency0/192.168.1.2/wedpr-site/create_all_dockers.sh
@@ -636,7 +636,7 @@ bash ./agency0/192.168.1.2/wedpr-jupyter-worker/create_all_dockers.sh
 
 
 # 创建agency1的所有docker服务
-# 可以通过 find . -name create_all_dockers.sh |grep -i agency1获取机构agency1的所有容器创建脚本
+# 可以通过 find . -name create_all_dockers.sh |grep -i agency1 |grep -v wedpr-generated 获取机构agency1的所有容器创建脚本
 bash ./agency1/192.168.1.2/wedpr-gateway/create_all_dockers.sh
 bash ./agency1/127.0.0.1/wedpr-mpc/create_all_dockers.sh
 bash ./agency1/192.168.1.2/wedpr-site/create_all_dockers.sh
@@ -649,7 +649,94 @@ bash ./agency1/192.168.1.2/wedpr-jupyter-worker/create_all_dockers.sh
 
 **步骤四: 校验隐私服务是否正常启动**
 
-- 通过`docker ps |grep -i wedpr` 命令找到wedpr相关的所有容器，检查是否有容器启动失败。
+- 通过`docker ps` 命令找到wedpr相关的所有容器，检查是否有容器启动失败。
+```bash
+###### 检查agency0所有docker服务是否启动正常 ######
+# 检查jupyter服务是否启动正常
+docker ps |grep -ia agency0 |grep -ia jupyter
+# 输出如下: (默认部署中，一个机构1个Jupyter)
+8dbcac11c0ae   fiscoorg/wedpr-jupyter-worker:v3.0.0     "/bin/bash /data/hom…"   19 minutes ago   Up 15 minutes   0.0.0.0:19000-19001->19000-19001/tcp, :::19000-19001->19000-19001/tcp, 0.0.0.0:19100-19120->19100-19120/tcp, :::19100-19120->19100-19120/tcp                                                                                                                                                                                                          agency0-wedpr-jupyter-worker-wedpr.zone.default-node0
+
+# 检查site服务是否启动正常
+docker ps |grep -ia agency0 |grep -ia site
+# 输出如下：（默认部署中，一个机构2个Site服务）
+60a9f03054db   fiscoorg/wedpr-site:v3.0.0               "/bin/sh -c '/usr/sb…"   5 seconds ago        Up 3 seconds        0.0.0.0:16003-16005->16003-16005/tcp, :::16003-16005->16003-16005/tcp                                                                                                                                                                                                                                                                                 agency0-wedpr-site-wedpr.zone.default-node1
+01486cbf11c5   fiscoorg/wedpr-site:v3.0.0               "/bin/sh -c '/usr/sb…"   6 minutes ago        Up 6 minutes        0.0.0.0:16000-16002->16000-16002/tcp, :::16000-16002->16000-16002/tcp                                                                                                                                                                                                                                                                                 agency0-wedpr-site-wedpr.zone.default-node0
+
+# 检查pir服务是否启动正常
+docker ps |grep -ia agency0 |grep -ia pir
+# 输出如下：(默认部署中，一个机构2个pir服务)
+2bfd07ee937a   fiscoorg/wedpr-pir:v3.0.0                "/bin/bash /data/hom…"   18 minutes ago   Up 18 minutes   0.0.0.0:16403-16404->16403-16404/tcp, :::16403-16404->16403-16404/tcp                                                                                                                                                                                                                                                                                 agency0-wedpr-pir-wedpr.zone.default-node1
+01a786da5ff8   fiscoorg/wedpr-pir:v3.0.0                "/bin/bash /data/hom…"   21 minutes ago   Up 21 minutes   0.0.0.0:16400-16401->16400-16401/tcp, :::16400-16401->16400-16401/tcp                                                                                                                                                                                                                                                                                 agency0-wedpr-pir-wedpr.zone.default-node0
+
+# 检查mpc服务是否启动正常
+docker ps |grep -ia agency0 |grep -ia mpc
+# 输出如下：（默认部署中，一个机构1个mpc服务）
+ad3d7415c755   fiscoorg/wedpr-mpc-service:v3.0.0        "/usr/local/bin/wedp…"   18 minutes ago       Up 18 minutes                                                                                                                                                                                                                                                                                                                                                             agency0-wedpr-mpc-wedpr.zone.default-node0
+
+# 检查建模服务是否启动正常
+docker ps |grep -ia agency0 |grep -ia model
+# 输出如下：（默认部署中，一个机构2个建模服务）
+413af6fd0a48   fiscoorg/wedpr-model-service:v3.0.0      "python -u /data/hom…"   15 minutes ago       Up 15 minutes       0.0.0.0:16503-16504->16503-16504/tcp, :::16503-16504->16503-16504/tcp                                                                                                                                                                                                                                                                                 agency0-wedpr-model-wedpr.zone.default-node1
+c5081c98f392   fiscoorg/wedpr-model-service:v3.0.0      "python -u /data/hom…"   16 minutes ago       Up 16 minutes       0.0.0.0:16500-16501->16500-16501/tcp, :::16500-16501->16500-16501/tcp                                                                                                                                                                                                                                                                                 agency0-wedpr-model-wedpr.zone.default-node0
+
+# 检查psi服务是否启动正常
+docker ps |grep -ia agency0 |grep -ia wedpr-pro-node
+# 输出如下：（默认部署中，一个机构2个psi服务）
+ccd173661472   fiscoorg/wedpr-pro-node-service:v3.0.0   "/usr/local/bin/ppc-…"   15 minutes ago   Up 15 minutes   0.0.0.0:10311->10311/tcp, :::10311->10311/tcp, 0.0.0.0:50403->50403/tcp, :::50403->50403/tcp                                                                                                                                                                                                                                                          agency0-wedpr-node-wedpr.zone.default-node1
+e3c182424b0a   fiscoorg/wedpr-pro-node-service:v3.0.0   "/usr/local/bin/ppc-…"   16 minutes ago   Up 16 minutes   0.0.0.0:10310->10310/tcp, :::10310->10310/tcp, 0.0.0.0:50402->50402/tcp, :::50402->50402/tcp                                                                                                                                                                                                                                                          agency0-wedpr-node-wedpr.zone.default-node0
+
+
+# 检查隐私计算网关是否启动正常
+docker ps |grep -ia agency0 |grep -ia gateway
+# 输出如下：（默认部署中，一个机构2个隐私计算网关服务）
+558ec20b003f   fiscoorg/wedpr-gateway-service:v3.0.0    "/usr/local/bin/ppc-…"   3 minutes ago    Up 3 minutes    0.0.0.0:50301->50301/tcp, :::50301->50301/tcp, 0.0.0.0:50601->50601/tcp, :::50601->50601/tcp                                                                                                                                                                                                                                                          agency0-wedpr-gateway-wedpr.zone.default-node1
+80d574747702   fiscoorg/wedpr-gateway-service:v3.0.0    "/usr/local/bin/ppc-…"   5 minutes ago    Up 5 minutes    0.0.0.0:50300->50300/tcp, :::50300->50300/tcp, 0.0.0.0:50600->50600/tcp, :::50600->50600/tcp                                                                                                                                                                                                                                                          agency0-wedpr-gateway-wedpr.zone.default-node0
+
+
+
+###### 检查agency1所有docker服务是否启动正常 ####
+# 检查Jupyter服务是否启动正常
+docker ps |grep -ia agency1 |grep -ia jupyter
+# 输出如下: (默认部署中，一个机构1个Jupyter服务)
+044e00fa04ca   fiscoorg/wedpr-jupyter-worker:v3.0.0     "/bin/bash /data/hom…"   About a minute ago   Up About a minute   0.0.0.0:29000-29001->29000-29001/tcp, :::29000-29001->29000-29001/tcp, 0.0.0.0:29100-29120->29100-29120/tcp, :::29100-29120->29100-29120/tcp                                                                                                                                                                                                          agency1-wedpr-jupyter-worker-wedpr.zone.default-node0
+
+# 检查site服务是否启动正常
+docker ps |grep -ia agency1 |grep -ia site
+# 输出如下：（默认部署中，一个机构2个Site服务）
+02ee094f3bb8   fiscoorg/wedpr-site:v3.0.0               "/bin/sh -c '/usr/sb…"   2 minutes ago    Up 2 minutes    0.0.0.0:26003-26005->26003-26005/tcp, :::26003-26005->26003-26005/tcp                                                                                                                                                                                                                                                                                 agency1-wedpr-site-wedpr.zone.default-node1
+e1dc8aa3f93f   fiscoorg/wedpr-site:v3.0.0               "/bin/sh -c '/usr/sb…"   2 minutes ago    Up 2 minutes    0.0.0.0:26000-26002->26000-26002/tcp, :::26000-26002->26000-26002/tcp                                                                                                                                                                                                                                                                                 agency1-wedpr-site-wedpr.zone.default-node0
+
+# 检查pir服务是否启动正常
+docker ps |grep -ia agency1 |grep -ia pir
+# 输出如下：(默认部署中，一个机构2个pir服务)
+a8b0fd617501   fiscoorg/wedpr-pir:v3.0.0                "/bin/bash /data/hom…"   3 minutes ago    Up 3 minutes    0.0.0.0:27103-27104->27103-27104/tcp, :::27103-27104->27103-27104/tcp                                                                                                                                                                                                                                                                                 agency1-wedpr-pir-wedpr.zone.default-node1
+f4ca31d405bb   fiscoorg/wedpr-pir:v3.0.0                "/bin/bash /data/hom…"   3 minutes ago    Up 3 minutes    0.0.0.0:27100-27101->27100-27101/tcp, :::27100-27101->27100-27101/tcp                                                                                                                                                                                                                                                                                 agency1-wedpr-pir-wedpr.zone.default-node0
+
+
+# 检查mpc服务是否启动正常
+docker ps |grep -ia agency1 |grep -ia mpc
+# 输出如下：（默认部署中，一个机构1个mpc服务）
+54fc8c66b9c2   fiscoorg/wedpr-mpc-service:v3.0.0        "/usr/local/bin/wedp…"   4 minutes ago    Up 4 minutes                                                                                                                                                                                                                                                                                                                                                          agency1-wedpr-mpc-wedpr.zone.default-node0
+
+# 检查建模服务是否启动正常
+docker ps |grep -ia agency1 |grep -ia model
+# 输出如下：（默认部署中，一个机构2个建模服务）
+5c777ed8c709   fiscoorg/wedpr-model-service:v3.0.0      "python -u /data/hom…"   4 minutes ago    Up 4 minutes    0.0.0.0:28103-28104->28103-28104/tcp, :::28103-28104->28103-28104/tcp                                                                                                                                                                                                                                                                                 agency1-wedpr-model-wedpr.zone.default-node1
+7d6048f8a982   fiscoorg/wedpr-model-service:v3.0.0      "python -u /data/hom…"   4 minutes ago    Up 4 minutes    0.0.0.0:28100-28101->28100-28101/tcp, :::28100-28101->28100-28101/tcp                                                                                                                                                                                                                                                                                 agency1-wedpr-model-wedpr.zone.default-node0
+
+# 检查psi服务是否启动正常
+docker ps |grep -ia agency1 |grep -ia wedpr-pro-node
+# 输出如下：（默认部署中，一个机构2个psi服务）
+fc0d9011e0fd   fiscoorg/wedpr-pro-node-service:v3.0.0   "/usr/local/bin/ppc-…"   4 minutes ago    Up 4 minutes    0.0.0.0:10421->10421/tcp, :::10421->10421/tcp, 0.0.0.0:50423->50423/tcp, :::50423->50423/tcp                                                                                                                                                                                                                                                          agency1-wedpr-node-wedpr.zone.default-node1
+100f6006d873   fiscoorg/wedpr-pro-node-service:v3.0.0   "/usr/local/bin/ppc-…"   4 minutes ago    Up 4 minutes    0.0.0.0:10420->10420/tcp, :::10420->10420/tcp, 0.0.0.0:50422->50422/tcp, :::50422->50422/tcp                                                                                                                                                                                                                                                          agency1-wedpr-node-wedpr.zone.default-node0
+
+# 检查隐私计算网关是否启动正常
+docker ps |grep -ia agency1 |grep -ia gateway
+# 输出如下：（默认部署中，一个机构2个隐私计算网关服务）
+7040e560f24f   fiscoorg/wedpr-gateway-service:v3.0.0    "/usr/local/bin/ppc-…"   4 minutes ago    Up 4 minutes    0.0.0.0:50321->50321/tcp, :::50321->50321/tcp, 0.0.0.0:50621->50621/tcp, :::50621->50621/tcp                                                                                                                                                                                                                                                          agency1-wedpr-gateway-wedpr.zone.default-node1
+c5fe08565f51   fiscoorg/wedpr-gateway-service:v3.0.0    "/usr/local/bin/ppc-…"   4 minutes ago    Up 4 minutes    0.0.0.0:50320->50320/tcp, :::50320->50320/tcp, 0.0.0.0:50620->50620/tcp, :::50620->50620/tcp                                                                                                                                                                                                                                                          agency1-wedpr-gateway-wedpr.zone.default-node0
+```
 - 在有服务启动失败的情况下，通过`docker logs`命令查看容器启动失败原因。
 - 所有服务的日志均挂载到了每个服务节点目录的logs子目录下，可通过命令 `find . -name logs`找到并查看对应服务节点的日志目录
 
@@ -665,12 +752,12 @@ bash ./agency1/192.168.1.2/wedpr-jupyter-worker/create_all_dockers.sh
 
 ```bash
 # 获取agency0的前端页面访问端口：
-cat `find . -name nginx.conf |grep -ia agency0 |grep -ia wedpr-site-node0` |grep -ia listen
+cat `find . -name nginx.conf |grep -ia agency0 |grep -ia wedpr-site-node0 |grep -v |grep -v wedpr-generated` |grep -ia listen
 # 输出如下, 说明可通过：机器IP:16002的方式从浏览器访问agency0隐私计算平台
 listen 16002;
 
 # 获取agency1的前端页面访问端口:
-cat `find . -name nginx.conf |grep -ia agency1 |grep -ia wedpr-site-node0` |grep -ia listen
+cat `find . -name nginx.conf |grep -ia agency1 |grep -ia wedpr-site-node0 |grep -v |grep -v wedpr-generated` |grep -ia listen
 # 输出如下, 说明可通过：机器IP:26002的方式从浏览器访问agency1隐私计算平台
  listen 26002;
 ```

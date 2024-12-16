@@ -35,4 +35,3 @@
 
 - CentOS 7.2+
 - Ubuntu 18.04+
-- macOS 12+
