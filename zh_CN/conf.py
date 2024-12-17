@@ -206,7 +206,7 @@ html_static_path = ['../_static', "images"]
 # .htaccess) here, relative to this directory. These files are copied
 # directly to the root of the documentation.
 #html_extra_path = []
-html_extra_path = ['../_static', 'images']
+html_extra_path = ['../_static', 'images', './docs/sdk/gateway_sdk/java/java-doc']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.

@@ -1,0 +1,7 @@
+com.webank.wedpr.sdk.jni.common
+com.webank.wedpr.sdk.jni.demo
+com.webank.wedpr.sdk.jni.generated
+com.webank.wedpr.sdk.jni.transport
+com.webank.wedpr.sdk.jni.transport.handlers
+com.webank.wedpr.sdk.jni.transport.impl
+com.webank.wedpr.sdk.jni.transport.model
