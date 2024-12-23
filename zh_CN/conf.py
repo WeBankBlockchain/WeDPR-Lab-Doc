@@ -167,9 +167,9 @@ todo_include_todos = True
 # VCS options: https://docs.readthedocs.io/en/latest/vcs.html#github
 html_context = {
     "display_github": True, # Integrate GitHub
-    "github_repo": "WeDPR-Doc", # Repo name
-    "github_user": "WeDPR",
-    "github_version": "3.0.0", # Version
+    "github_repo": "WeDPR-Lab-Doc", # Repo name
+    "github_user": "WeBankBlockchain",
+    "github_version": "release-3", # Version
     "conf_py_path": "/", # Path in the checkout to the docs root
 }
 
