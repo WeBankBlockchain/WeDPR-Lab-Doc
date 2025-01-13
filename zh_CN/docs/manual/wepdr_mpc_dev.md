@@ -62,7 +62,7 @@ WHERE condition;
 参数说明：
 
 - **column1, column2, ...**：要选择的字段名称，可以为多个字段。如果不指定字段名称，则会选择所有字段。
-- **table_name**：要查询的表名称。
+- **table_name**：要查询的表名称。注意表名定义规则是第一条数据集对应表名为source0, 第二条数据集对应表名为source1，依此类推。
 
 #### JOIN
 SQL INNER JOIN 从多个表中返回满足 JOIN 条件的所有行。
@@ -431,6 +431,8 @@ display_matrix(data_matrix)
 ### 9.2.4 自定义计算简单示例
 下面是一个模拟2方比较(经典的百万富翁问题)的逻辑，安全比较两方数值的大小
 ```python
+from ppc import *
+
 # 定义两方参与
 SOURCE0 = 0
 SOURCE1 = 1
@@ -459,6 +461,8 @@ wedpr_main(source0_record, source1_record)
 ### 9.2.5 自定义计算综合示例
 下面是一个模拟三方投票的逻辑，每一方给一个候选项投一个数值
 ```python
+from ppc import *
+
 # 定义三方参与
 SOURCE0 = 0
 SOURCE1 = 1
